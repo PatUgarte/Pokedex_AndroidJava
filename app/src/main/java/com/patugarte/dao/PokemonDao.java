@@ -31,7 +31,7 @@ public class PokemonDao {
     }
 
     public void getPokemonList(final ResultListener<PokemonContainer> escuchadorDelController) {
-        Call<PokemonContainer> call = this.pokemonService.getPokemonList();
+        Call<PokemonContainer> call = this.pokemonService.getPokemonList(0,151);
 
         call.enqueue(new Callback<PokemonContainer>() {
             @Override
