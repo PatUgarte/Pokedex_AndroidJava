@@ -1,6 +1,5 @@
 package com.patugarte.view;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +18,9 @@ import java.util.List;
 public class RecyclerViewPokemonAdapter extends RecyclerView.Adapter<RecyclerViewPokemonAdapter.PokemonViewHolder> {
 
     private List<Pokemon> listaDePokemones;
-    private Context context;
 
-    public RecyclerViewPokemonAdapter(List<Pokemon> listaDePokemones, Context context) {
+    public RecyclerViewPokemonAdapter(List<Pokemon> listaDePokemones) {
         this.listaDePokemones = listaDePokemones;
-        this.context = context;
     }
 
     @NonNull
@@ -62,9 +59,12 @@ public class RecyclerViewPokemonAdapter extends RecyclerView.Adapter<RecyclerVie
         }
 
         public void bindPokemon(Pokemon pokemon) {
+            String sprite = pokemon.getSprites().getFront_default();
+
             Glide.with(itemView)
-                    .load(pokemon.getImagen())
+                    .load(sprite)
                     .into(imageViewceldaPokemon);
+
             textViewceldaPokemon.setText(pokemon.getNombre());
         }
     }

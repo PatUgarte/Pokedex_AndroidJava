@@ -1,6 +1,5 @@
 package com.patugarte.view;
 
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +23,7 @@ import java.util.List;
  */
 public class RecyclerViewFragment extends Fragment {
 
-    private List<Pokemon> listaDePokemonesMVC;
+    private List<Pokemon> listaDePokemones;
     private RecyclerViewPokemonAdapter adapterPokemon;
     private RecyclerView recyclerViewDePokemones;
     private PokemonController pokemonController;
@@ -40,8 +39,8 @@ public class RecyclerViewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
 
         recyclerViewDePokemones = view.findViewById(R.id.RecyclerViewPokemones);
-        listaDePokemonesMVC = new ArrayList<>();
-        adapterPokemon = new RecyclerViewPokemonAdapter(listaDePokemonesMVC,this.getContext());
+        listaDePokemones = new ArrayList<>();
+        adapterPokemon = new RecyclerViewPokemonAdapter(listaDePokemones);
         pokemonController = new PokemonController();
 
         pokemonController.obtenerPokemones(new ResultListener<List<Pokemon>>() {
@@ -57,5 +56,4 @@ public class RecyclerViewFragment extends Fragment {
 
         return view;
     }
-
 }
